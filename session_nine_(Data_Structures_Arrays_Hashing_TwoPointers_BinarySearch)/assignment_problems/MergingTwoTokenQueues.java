@@ -1,0 +1,36 @@
+// PROBLEM 2: Merging Two Token Queues (Two-Pointer Merge)
+import java.util.ArrayList;
+import java.util.List;
+
+public class MergingTwoTokenQueues {
+    public static List<Integer> mergeTokens(List<Integer> counterA, List<Integer> counterB) {
+        List<Integer> result = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (i < counterA.size() && j < counterB.size()) {
+            if (counterA.get(i) <= counterB.get(j)) {
+                result.add(counterA.get(i));
+                i++;
+            } else {
+                result.add(counterB.get(j));
+                j++;
+            }
+        }
+
+        while (i < counterA.size()) {
+            result.add(counterA.get(i));
+            i++;
+        }
+
+        while (j < counterB.size()) {
+            result.add(counterB.get(j));
+            j++;
+        }
+
+        return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Merging Two Token Queues loaded successfully.");
+    }
+}
